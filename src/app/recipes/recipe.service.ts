@@ -1,16 +1,40 @@
 import { Recipe } from './recipes.model';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
+@Injectable()
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('Test recipe 1', 'description test 1', 'https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Chicken-Tikka-99647a6.jpg?quality=90&resize=556,505'),
-    new Recipe('Test recipe 2', 'description test 2', 'https://www.foodandwine.com/thmb/tAS-x_IC4ss1cb9EdDpsr0UExdM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bucatini-with-mushroom-ragu-dandelion-greens-and-tarragon-FT-RECIPE0421-3a5f0d29f7264f5e9952d4a3a51f5f58.jpg')
+    new Recipe(
+      'Double Cheeseburger',
+      'McDonald\'s double cheeseburger',
+      'https://www.kitchensanctuary.com/wp-content/uploads/2021/05/Double-Cheeseburger-square-FS-42-500x500.jpg',
+      [
+        new Ingredient('bread', 2),
+        new Ingredient('hamburger', 2),
+        new Ingredient('cheese', 2)
+        ]
+    ),
+    new Recipe(
+      'Omelette',
+      'Pisci d\'uovu',
+      'https://www.olivetomato.com/wp-content/uploads/2016/02/SAM4952-1.jpg',
+      [{name: 'eggs', amount: 2}, {name: 'cheese', amount: 1}, {name: 'onion', amount: 2}]
+    )
   ];
+
+  constructor(private shoppingListService: ShoppingListService) {
+  }
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    this.shoppingListService.addIngredients(ingredients);
   }
 
 }
