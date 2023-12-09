@@ -6,6 +6,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormTdComponent } from './form-td/form-td.component';
+import { FormReactiveComponent } from './form-reactive/form-reactive.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   },
   {path: 'shopping-list', component: ShoppingListComponent},
   {path: 'form-td', component: FormTdComponent},
+  {path: 'form-reactive', component: FormReactiveComponent},
 ];
 
 @NgModule({
