@@ -7,6 +7,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormTdComponent } from './form-td/form-td.component';
 import { FormReactiveComponent } from './form-reactive/form-reactive.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -20,7 +21,13 @@ const appRoutes: Routes = [
       {path: ':id/edit', component: RecipeEditComponent}
     ]
   },
-  {path: 'shopping-list', component: ShoppingListComponent},
+  {
+    path: 'shopping-list',
+    component: ShoppingListComponent,
+    children: [
+      {path: ':id/edit', component: ShoppingEditComponent}
+    ]
+  },
   {path: 'form-td', component: FormTdComponent},
   {path: 'form-reactive', component: FormReactiveComponent},
 ];
