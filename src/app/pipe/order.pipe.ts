@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OrderPipe implements PipeTransform {
 
-  transform(value, ...args: unknown[]): unknown {
+  transform(value, keyName: string): unknown {
     return value.sort(
-      (a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)
+      (a,b) => (a[keyName] > b[keyName]) ? 1 : ((b[keyName] > a[keyName]) ? -1 : 0)
     );
   }
 
