@@ -23,6 +23,7 @@ import { PipeComponent } from './pipe/pipe.component';
 import { ReversePipe } from './pipe/reverse.pipe';
 import { OrderPipe } from './pipe/order.pipe';
 import { DataStorageService } from './shared/data-storage.service';
+import { RecipesResolverService } from './recipes/recipes-resolver.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { DataStorageService } from './shared/data-storage.service';
   providers: [
     ShoppingListService,
     RecipeService,
-    DataStorageService
+    DataStorageService,
+    RecipesResolverService
   ],
   bootstrap: [AppComponent]
 })
