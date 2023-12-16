@@ -10,12 +10,13 @@
         <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
         <li routerLinkActive="active"><a routerLink="/form-td">Template driven form</a></li>
         <li routerLinkActive="active"><a routerLink="/form-reactive">Reactive form</a></li>
+        <li routerLinkActive="active"><a routerLink="/pipe">Pipe tests</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" appDropDown>
           <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a style="cursor: pointer;">Save Data</a></li>
+            <li><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li>
             <li><a style="cursor: pointer;">Fetch Data</a></li>
           </ul>
         </li>

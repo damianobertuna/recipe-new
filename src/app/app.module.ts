@@ -19,8 +19,10 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { FormTdComponent } from './form-td/form-td.component';
 import { FormReactiveComponent } from './form-reactive/form-reactive.component';
 import { RecipeService } from './recipes/recipe.service';
-
-
+import { PipeComponent } from './pipe/pipe.component';
+import { ReversePipe } from './pipe/reverse.pipe';
+import { OrderPipe } from './pipe/order.pipe';
+import { DataStorageService } from './shared/data-storage.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,10 @@ import { RecipeService } from './recipes/recipe.service';
     RecipeStartComponent,
     RecipeEditComponent,
     FormTdComponent,
-    FormReactiveComponent
+    FormReactiveComponent,
+    PipeComponent,
+    ReversePipe,
+    OrderPipe
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,11 @@ import { RecipeService } from './recipes/recipe.service';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService,RecipeService],
+  providers: [
+    ShoppingListService,
+    RecipeService,
+    DataStorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
