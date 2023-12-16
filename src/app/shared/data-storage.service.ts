@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RecipeService } from '../recipes/recipe.service';
+import { Recipe } from '../recipes/recipes.model';
 
 @Injectable()
 export class DataStorageService {
+  private apiUrl = 'https://angular-project-9a634-default-rtdb.europe-west1.firebasedatabase.app/recipes.json';
+
   constructor(
     private httpClient: HttpClient,
     private recipeService: RecipeService
@@ -13,8 +16,16 @@ export class DataStorageService {
     const recipes = this.recipeService.getRecipes();
 
     this.httpClient.put(
-      'https://angular-project-9a634-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
+      this.apiUrl,
       recipes
     ).subscribe(response => console.log(response));
+  }
+
+  fetchRecipes() {
+    this.httpClient.get<Recipe[]>(
+      this.apiUrl
+    ).subscribe(recipes => {
+      this.recipeService.setRecipes(recipes);
+    });
   }
 }

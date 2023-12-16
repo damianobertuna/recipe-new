@@ -48,6 +48,11 @@ export class RecipeService {
     this.recipesChanged.next(this.recipes.slice());
   }
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   updateRecipe(index: number, recipe: Recipe) {
     this.recipes[index] = recipe;
     this.recipesChanged.next(this.recipes.slice());
@@ -57,5 +62,4 @@ export class RecipeService {
     this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
   }
-
 }
