@@ -10,6 +10,7 @@ import { FormReactiveComponent } from './form-reactive/form-reactive.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { RecipesResolverService } from './recipes/recipes-resolver.service';
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
       {path: ':id/edit', component: ShoppingEditComponent}
     ]
   },
+  {path: 'auth', component: AuthComponent},
   {path: 'form-td', component: FormTdComponent},
   {path: 'form-reactive', component: FormReactiveComponent},
   {path: 'pipe', component: PipeComponent},

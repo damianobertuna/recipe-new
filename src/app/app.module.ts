@@ -24,6 +24,7 @@ import { ReversePipe } from './pipe/reverse.pipe';
 import { OrderPipe } from './pipe/order.pipe';
 import { DataStorageService } from './shared/data-storage.service';
 import { RecipesResolverService } from './recipes/recipes-resolver.service';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RecipesResolverService } from './recipes/recipes-resolver.service';
     FormReactiveComponent,
     PipeComponent,
     ReversePipe,
-    OrderPipe
+    OrderPipe,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
