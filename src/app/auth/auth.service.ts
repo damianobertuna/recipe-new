@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, throwError } from 'rxjs';
 import { User } from './user.model';
 import { tap } from 'rxjs/operators';
 
@@ -17,7 +17,7 @@ export interface AuthResponseData {
 @Injectable({providedIn: 'root'})
 export class AuthService {
   private apiKey = 'AIzaSyAogji-IX8pVoUgFnbmqcn-OGKXipZZPu4';
-  user = new Subject<User>();
+  user = new BehaviorSubject<User>(null);
 
   constructor(private http: HttpClient) {
   }
@@ -66,7 +66,7 @@ export class AuthService {
   private handleErrorMessage(errorResp: HttpErrorResponse) {
     let errorMessage = 'An error occurred';
     if (!errorResp.error || !errorResp.error.error) {
-      return errorMessage;
+      return throwError(errorMessage);
     }
 
     switch (errorResp.error.error.message) {
@@ -78,6 +78,6 @@ export class AuthService {
         break;
     }
 
-    return errorMessage;
+    return throwError(errorMessage);
   }
 }
