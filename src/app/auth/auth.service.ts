@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 
 export interface AuthResponseData {
@@ -27,10 +27,7 @@ export class AuthService {
         password: password,
         returnSecureToken: true
       }
-    ).pipe(catchError(errorResp => {
-        return throwError(this.handleErrorMessage(errorResp));
-      })
-    );
+    ).pipe(catchError(this.handleErrorMessage));
   }
 
   login(email: string, password: string) {
@@ -41,12 +38,10 @@ export class AuthService {
         password: password,
         returnSecureToken: true
       }
-    ).pipe(catchError(errorResp => {
-      return throwError(this.handleErrorMessage(errorResp));
-    }));
+    ).pipe(catchError(this.handleErrorMessage));
   }
 
-  handleErrorMessage(errorResp) {
+  private handleErrorMessage(errorResp: HttpErrorResponse) {
     let errorMessage = 'An error occurred';
     if (!errorResp.error || !errorResp.error.error) {
       return errorMessage;
