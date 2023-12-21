@@ -43,13 +43,13 @@ export class AuthComponent implements OnInit {
 
     authObs.subscribe(
       responseData => {
-        console.log(responseData);
-        this.isLoading = false;
-        this.error = false;
+          console.log(responseData);
+          this.isLoading = false;
+          this.error = false;
         }, errorMessage => {
-        this.errorMessage = errorMessage;
-        this.isLoading = false;
-        this.error = true;
+          this.errorMessage = errorMessage;
+          this.isLoading = false;
+          this.error = true;
       });
 
     this.loginForm.reset();
