@@ -65,10 +65,12 @@ export class AuthService {
 
   private handleErrorMessage(errorResp: HttpErrorResponse) {
     let errorMessage = 'An error occurred';
+    console.log(errorResp);
     if (!errorResp.error || !errorResp.error.error) {
       return throwError(errorMessage);
     }
 
+    console.log(errorResp.error.error.message);
     switch (errorResp.error.error.message) {
       case 'EMAIL_EXISTS':
         errorMessage = 'This email already exists';
