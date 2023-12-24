@@ -28,6 +28,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthGuard } from './auth/auth.guard';
+import { AlertComponent } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AuthGuard } from './auth/auth.guard';
     ReversePipe,
     OrderPipe,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
