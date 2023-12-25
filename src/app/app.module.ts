@@ -6,36 +6,25 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing';
-import { FormTdComponent } from './form-td/form-td.component';
-import { PipeComponent } from './pipe/pipe.component';
-import { ReversePipe } from './pipe/reverse.pipe';
-import { OrderPipe } from './pipe/order.pipe';
-import { AuthComponent } from './auth/auth.component';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from '../core.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FormTdComponent,
-    PipeComponent,
-    ReversePipe,
-    OrderPipe,
-    AuthComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     RecipesModule,
     ShoppingListModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    AuthModule
   ],
   bootstrap: [AppComponent]
 })
