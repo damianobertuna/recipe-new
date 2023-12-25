@@ -90,7 +90,9 @@ export class AuthService {
   }
 
   autoLogout(expirationDuration: number) {
+    console.log('Expiration s: ' + expirationDuration);
     this.tokenExpirationTimer = setTimeout(() => {
+      console.log("Auto Logout");
       this.logout();
     }, expirationDuration);
   }
@@ -103,6 +105,7 @@ export class AuthService {
       token,
       expirationDate);
     this.user.next(user);
+
     this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
   }
