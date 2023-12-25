@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing';
 import { FormTdComponent } from './form-td/form-td.component';
-import { FormReactiveComponent } from './form-reactive/form-reactive.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { ReversePipe } from './pipe/reverse.pipe';
 import { OrderPipe } from './pipe/order.pipe';
@@ -22,7 +21,6 @@ import { CoreModule } from '../core.module';
     AppComponent,
     HeaderComponent,
     FormTdComponent,
-    FormReactiveComponent,
     PipeComponent,
     ReversePipe,
     OrderPipe,
