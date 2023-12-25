@@ -6,10 +6,10 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.component';
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
-import { CommonModule } from '@angular/common';
 import { RecipesRoutingModule } from './recipes-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,14 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
     RecipeDetailComponent,
     RecipeItemComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule,
+    SharedModule,
     RecipesRoutingModule
   ],
   exports: [

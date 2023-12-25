@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { ShoppingListComponent } from './shopping-list.component';
 import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
-import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ShoppingListRouting } from './shopping-list.routing';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { ShoppingListRouting } from './shopping-list.routing';
   ],
   imports: [
     BrowserModule,
-    CommonModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
